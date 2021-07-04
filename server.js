@@ -18,7 +18,7 @@ const parrotRouter = require('./routes/parrot');
 const signInRouter = require('./routes/sessions');
 const uploadRouter = require('./routes/upload');
 
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
