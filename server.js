@@ -17,6 +17,7 @@ const signUpRouter = require("./routes/user");
 const parrotRouter = require("./routes/parrot");
 const signInRouter = require("./routes/sessions");
 const uploadRouter = require("./routes/upload");
+const homeRouter = require("./routes/home");
 
 const PORT = process.env.PORT;
 
@@ -60,10 +61,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Parrot Party server");
-});
-
+app.use("", homeRouter);
 app.use("/api/users", signUpRouter);
 app.use("/api/parrots", parrotRouter);
 app.use("/api/sessions", signInRouter);
