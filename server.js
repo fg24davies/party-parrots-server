@@ -60,7 +60,7 @@ app.use((req, res, next) => {
   next();
 });
 
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Welcome to the Parrot Party server");
 });
 
