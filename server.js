@@ -60,6 +60,10 @@ app.use((req, res, next) => {
   next();
 });
 
+router.get("/", (req, res) => {
+  res.send("Welcome to the Parrot Party server");
+});
+
 app.use("/api/users", signUpRouter);
 app.use("/api/parrots", parrotRouter);
 app.use("/api/sessions", signInRouter);
