@@ -10,8 +10,6 @@ const multerS3 = require('multer-s3');
 const { v4: uuid } = require('uuid');
 const { application } = require('express');
 
-// import { v4 as uuid } from 'uuid';
-
 aws.config.update({
 	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -59,20 +57,6 @@ router.post('/', async (req, res) => {
 			return res.status(400).send({ error });
 		});
 });
-
-// router.post('/', upload.single('image'), async (req, res) => {
-// 	try {
-// 		const file = req.file;
-// 		console.log(file.location);
-// 		if (file.location) {
-// 			res.status(200).send({ downloadUrl: file.location });
-// 		} else {
-// 			res.status(500).send({ error: 'Something went wrong' });
-// 		}
-// 	} catch (error) {
-// 		res.status(500).send({ error });
-// 	}
-// });
 
 router.get('/', (req, res) => {
 	console.log('key: ', aws.config.credentials.secretAccessKey);
