@@ -19,7 +19,6 @@ router.post("/", async (req, res) => {
         user.password
       );
       if (passwordsMatch) {
-        //   ... further code to maintain authentication like jwt or sessions
         req.session.isAuth = true;
         req.session.user = user.id;
         res.send({
