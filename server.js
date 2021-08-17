@@ -7,11 +7,7 @@ const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session);
 const cors = require("cors");
 const mongoose = require("mongoose");
-// const passport = require('passport');
 const app = express();
-
-// const initializePassport = require('./passport-config')
-// initializePassport(passport)
 
 const signUpRouter = require("./routes/user");
 const parrotRouter = require("./routes/parrot");
@@ -25,8 +21,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
-//teest
-//another test
 const db = mongoose.connection;
 db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("Connected"));
@@ -54,7 +48,7 @@ app.use(
   })
 );
 
-// Authentication function but unsure how it works - have found req.session.isAuth in a log in file
+// Authentication function
 app.use((req, res, next) => {
   res.locals.isAuth = req.session.isAuth;
   next();
