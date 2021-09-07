@@ -36,10 +36,10 @@ store.on("error", function (error) {
   console.log(error);
 });
 
-//
+// Storing session in MongoDBStore
 app.use(
-  session({
-    secret: "boys in french",
+  require("express-session")({
+    secret: "a big secret",
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week (calculated in milliseconds )
     },
@@ -49,7 +49,7 @@ app.use(
   })
 );
 
-// Authentication function
+// Authenticating session
 app.use((req, res, next) => {
   res.locals.isAuth = req.session.isAuth;
   next();

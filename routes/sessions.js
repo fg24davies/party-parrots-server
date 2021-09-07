@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
           username: user.username,
           userType: user.type,
         });
+        console.log(res);
       } else {
         return res.status(401).send({ message: "Password is incorrect" });
       }
