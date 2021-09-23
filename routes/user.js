@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
+// creating a new user in the User collection
 router.post("/", async (req, res) => {
   console.log(req.body);
   try {

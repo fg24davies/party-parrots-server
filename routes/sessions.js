@@ -42,17 +42,14 @@ router.post("/", async (req, res) => {
 
 // Logging out
 router.delete("/:sessionId", async (req, res) => {
-  console.log("Signout, ", req.params.sessionId);
   try {
-    const conn = mongoose.connection;
-    const response = await conn
+    const connect = mongoose.connection;
+    const response = await connect
       .collection("sessions")
       .deleteOne({ _id: req.params.sessionId });
 
     console.log("response from mongo: ", response);
-
     res.send({ message: "Successfully Logged Out" });
-    console.log("sucessfully deleted");
   } catch (error) {
     res.send({ message: error });
   }

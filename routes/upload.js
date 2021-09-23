@@ -46,10 +46,11 @@ const uploadToS3 = (req, res) => {
   });
 };
 
+// route to save image to the s3 bucket
 router.post("/", async (req, res) => {
   uploadToS3(req, res)
     .then((downloadUrl) => {
-      return res.status(200).send({ downloadUrl }); // this is saved the database as imgUrl
+      return res.status(200).send({ downloadUrl }); // this is saved to the parrot collection key 'imgUrl'
     })
     .catch((error) => {
       return res.status(400).send({ error });
